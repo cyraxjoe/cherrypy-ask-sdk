@@ -7,7 +7,7 @@ Extending `Ask SDK <https://github.com/alexa/alexa-skills-kit-sdk-for-python>`_ 
 Quick Start
 -----------
 
-Mandatory warning from the upstream ask-sdk for python:
+Mandatory `warning` from the upstream ask-sdk for python.
 
 .. warning::
 
@@ -18,7 +18,7 @@ Mandatory warning from the upstream ask-sdk for python:
     stable.
 
 If you already have a skill built using the ASK SDK skill builders, then you
-only need to do the following, to set this up in your flask app:
+only need to do the following to set this up in your CherryPy application:
 
 .. code-block:: python
 
@@ -31,18 +31,21 @@ only need to do the following, to set this up in your flask app:
     # For eg : sb.add_request_handler(LaunchRequestHandler())
 
     # add the ask_sdk_skill tool in the global ``cherrypy.tools`` toolbox.
+    # Passing the cherrypy.tools toolbox is the default, but passing it
+    # explicitly just to make it more explicit.
     cherrypy_ask_sdk.add_in_toolbox(cherrypy.tools)
 
     if __name__ == '__main__':
         cherrypy.quickstart(
-        config={
-            '/': {
-                'tools.ask_sdk_skill.on': True,
-                'tools.ask_sdk_skill.skill': sb.create(),
-                'tools.ask_sdk_skill.verify_signature': True,
-                'tools.ask_sdk_skill.verify_timestamp': True
+            config={
+                '/': {
+                    'tools.ask_sdk_skill.on': True,
+                    'tools.ask_sdk_skill.skill': sb.create(),
+                    'tools.ask_sdk_skill.verify_signature': True,
+                    'tools.ask_sdk_skill.verify_timestamp': True
+                }
             }
-        })
+        )
 
 Installation
 ------------
