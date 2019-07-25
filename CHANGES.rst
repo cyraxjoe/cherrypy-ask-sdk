@@ -2,6 +2,14 @@
 CHANGELOG
 =========
 
+0.1.2
+-----
+
+* Not actual `application` changes, but rather in the package setup.
+  Modify the way we define the single source of ``__version__`` in the package,
+  so that we have a replicable source distribution package (can re-generate
+  itself or a wheel).
+
 0.1.1
 -----
 
