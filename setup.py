@@ -4,7 +4,6 @@ import codecs
 import re
 
 import setuptools
-from setuptools.config import read_configuration
 
 
 def read(*parts):
@@ -22,7 +21,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-setup_params = {
+dynamic_setup_params = {
     # dynamically generated params
     'version': find_version('cherrypy_ask_sdk', '__init__.py'),
     'install_requires': [
@@ -30,7 +29,4 @@ setup_params = {
     ],
 }
 
-config = read_configuration("setup.cfg")
-setup_params = dict(setup_params, **config['metadata'])
-setup_params = dict(setup_params, **config['options'])
-setuptools.setup(**setup_params)
+setuptools.setup(**dynamic_setup_params)

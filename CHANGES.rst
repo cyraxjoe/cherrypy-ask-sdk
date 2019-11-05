@@ -2,6 +2,11 @@
 CHANGELOG
 =========
 
+0.1.3
+-----
+
+* Update the setup module to make it work with the latest setuptools.
+
 0.1.2
 -----
 
